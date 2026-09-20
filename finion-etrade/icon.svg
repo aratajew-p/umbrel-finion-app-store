@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Finion eTrade">
+  <rect width="512" height="512" rx="114" fill="#0a0b0d"/>
+  <g fill="#f59e0b">
+    <rect x="112" y="300" width="54" height="100" rx="12"/>
+    <rect x="196" y="244" width="54" height="156" rx="12"/>
+    <rect x="280" y="292" width="54" height="108" rx="12"/>
+    <rect x="364" y="180" width="54" height="220" rx="12"/>
+  </g>
+  <path d="M112 232 L223 148 L307 200 L421 104" fill="none" stroke="#e5e7eb" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="421" cy="104" r="26" fill="#e5e7eb"/>
+</svg>

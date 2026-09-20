@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: finion-etrade_web_1
+      APP_PORT: 8000
+
+  web:
+    # Built from the private FinionStudio repo and pushed to the registry
+    # running on this Umbrel box — see umbrel/scripts/deploy-etrade.sh there.
+    # Not digest-pinned: the tag is rewritten on every deploy in a local
+    # registry only this device can reach, so a digest would just be one more
+    # thing to keep in sync. Bump the tag to roll the app forward.
+    image: localhost:5000/finion-etrade:0.1.0
+    restart: on-failure
+    init: true
+    user: "1000:1000"
+    environment:
+      ETRADE_DB_FILE: /data/etrade.db
+      FX_RATES_DB_FILE: /data/fx_rates.db
+    volumes:
+      # Imported trades plus the cached NBP exchange-rate table.
+      - ${APP_DATA_DIR}/data/db:/data

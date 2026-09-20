@@ -1,0 +1,42 @@
+manifestVersion: 1
+id: finion-etrade
+category: finance
+name: Finion eTrade
+version: "0.1.0"
+tagline: Polish capital-gains summaries for E*TRADE RSU and ESPP sales
+description: >-
+  Import an E*TRADE Gains & Losses XLSX export and get the numbers you need for
+  a Polish PIT-38 return, with every USD amount converted at the NBP mid rate
+  for the preceding business day.
+
+
+  - Yearly totals for PIT-22 (proceeds) and PIT-23 (cost basis), PnL, and 19% flat tax
+
+  - A unified-FIFO comparison that pools RSU and ESPP shares as a single
+  fungible holding, as Polish law requires, alongside the lot matching E*TRADE
+  applied — so you can see what the difference costs you
+
+  - Per-transaction breakdown with the buy and sell exchange rates actually used
+
+
+  Imported trades and the cached NBP rate table are stored in the app's own
+  data directory and are included in Umbrel backups. Nothing is sent anywhere
+  except to the NBP rates API.
+releaseNotes: ""
+
+developer: Andrzej Ratajewski
+website: https://github.com/aratajew-p/umbrel-finion-app-store
+dependencies: []
+repo: https://github.com/aratajew-p/umbrel-finion-app-store
+support: https://github.com/aratajew-p/umbrel-finion-app-store/issues
+
+port: 4200
+gallery: []
+path: ""
+icon: https://raw.githubusercontent.com/aratajew-p/umbrel-finion-app-store/main/finion-etrade/icon.svg
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Andrzej Ratajewski
+submission: ""
