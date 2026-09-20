@@ -15,6 +15,7 @@ https://github.com/aratajew-p/umbrel-finion-app-store.git
 | --- | --- | --- |
 | `finion-etrade` | 4200 | Polish capital-gains summaries from an E*TRADE Gains & Losses XLSX export |
 | `finion-stacksats` | 4201 | Bitcoin portfolio, cost basis, and Polish crypto tax from exchange trade history |
+| `finion-humbletrading` | 4202 | BTC cycle dashboard with on-chain confluence and Telegram alerts |
 
 ## Note on images
 

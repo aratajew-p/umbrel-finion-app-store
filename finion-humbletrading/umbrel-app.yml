@@ -1,0 +1,67 @@
+manifestVersion: 1
+id: finion-humbletrading
+category: finance
+name: Finion Humble Trading
+version: "0.1.0"
+tagline: BTC cycle dashboard with on-chain confluence and Telegram alerts
+description: >-
+  A Bitcoin market dashboard built around cost-basis gravity and cohort
+  behaviour rather than price alone, with an alerting worker that watches the
+  same signals while you are not looking.
+
+
+  - Price against True Market Mean, STH cost basis, realised price and the 200-day moving average
+
+  - Cycle-position gauge and a risk-on/risk-off oscillator scored against five years of history
+
+  - Spot-vs-futures leadership, funding rates, dollar funding and liquidation flow
+
+  - A manually entered perp position with liquidation distance, plus what-if scenarios you can save and compare
+
+  - Telegram alerts for price zones, on-chain shifts, macro releases and position risk, with optional Twilio voice calls for emergencies
+
+
+  Telegram and Twilio credentials are entered in the app's own settings and
+  stored encrypted in its data directory — they are not environment variables.
+  Set up a bot with @BotFather and paste the token in the Alerts panel.
+
+
+  The on-chain panes need a researchbitcoin.net API key, and funding and
+  liquidation data needs a Coinalyze key; both are set in this app's settings
+  below. The macro alert job additionally uses a free FRED API key. Each is
+  optional — the panes that depend on a missing key stay empty and everything
+  else keeps working.
+releaseNotes: ""
+
+developer: Andrzej Ratajewski
+website: https://github.com/aratajew-p/umbrel-finion-app-store
+dependencies: []
+repo: https://github.com/aratajew-p/umbrel-finion-app-store
+support: https://github.com/aratajew-p/umbrel-finion-app-store/issues
+
+port: 4202
+gallery: []
+path: ""
+icon: https://raw.githubusercontent.com/aratajew-p/umbrel-finion-app-store/main/finion-humbletrading/icon.svg
+
+environment:
+  - name: RESEARCH_BITCOIN_API_KEY
+    services:
+      - web
+      - worker
+    note: API key from researchbitcoin.net, used for the on-chain cost-basis and cohort panes. Leave empty to run without them.
+  - name: COINALYZE_API_KEY
+    services:
+      - web
+      - worker
+    note: API key from coinalyze.net, used for aggregate funding rates and liquidation flow. Leave empty to hide those panes.
+  - name: FRED_API_KEY
+    services:
+      - worker
+    note: Free API key from fred.stlouisfed.org, used only by the macro alert job. Leave empty to skip macro alerts.
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Andrzej Ratajewski
+submission: ""

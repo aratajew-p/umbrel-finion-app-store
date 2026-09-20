@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: finion-humbletrading_web_1
+      APP_PORT: 8000
+
+  web:
+    # Built from the private FinionStudio repo and pushed to the registry
+    # running on this Umbrel box — see umbrel/scripts/deploy-app.sh there.
+    image: localhost:5000/finion-humbletrading:0.1.0
+    restart: on-failure
+    init: true
+    user: "1000:1000"
+    environment:
+      TRADES_DB_FILE: /data/trades.db
+      # Encrypts the Telegram bot token and Twilio credentials entered in the
+      # app's Alerts panel. Must stay beside the rows it protects.
+      FERNET_KEY_FILE: /data/fernet.key
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data
+
+  worker:
+    # Same image, different command. The worker and the API never talk over
+    # the network — the API writes alert_signals rows and the worker drains
+    # them — so they only need to share this bind mount.
+    image: localhost:5000/finion-humbletrading:0.1.0
+    restart: on-failure
+    init: true
+    user: "1000:1000"
+    command: ["python", "-m", "alerts.worker"]
+    depends_on:
+      - web
+    environment:
+      TRADES_DB_FILE: /data/trades.db
+      FERNET_KEY_FILE: /data/fernet.key
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data
