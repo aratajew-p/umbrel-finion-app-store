@@ -1,0 +1,55 @@
+manifestVersion: 1
+id: finion-stacksats
+category: finance
+name: Finion Stack Sats
+version: "0.1.0"
+tagline: Bitcoin portfolio, cost basis, and Polish crypto tax from your own trade history
+description: >-
+  Import trade history from Kraken, Binance, Bybit, Zonda, Crypto.com, Strike or
+  Revolut and see what your stack actually cost you, in PLN, at the NBP rate for
+  each trade date.
+
+
+  - Portfolio value against cumulative spending, and profit & loss over time
+
+  - Every buy plotted on the BTC price chart, sized by PLN spent
+
+  - Buy quality grading: each purchase scored against on-chain cost-basis levels
+
+  - Polish crypto tax summary with a PIT cost-basis table and XLSX export
+
+  - Optional overlay of your portfolio against Polish apartment price indices
+
+
+  Kraken API keys, if you save them for automatic syncing, are encrypted at rest
+  with a key generated on first use and kept in the app's data directory.
+  Read-only keys are sufficient — the app never places orders.
+
+
+  The on-chain overlays (True Market Mean, STH cost basis, realised price) need a
+  free API key from researchbitcoin.net, set in this app's settings. Everything
+  else works without it.
+releaseNotes: ""
+
+developer: Andrzej Ratajewski
+website: https://github.com/aratajew-p/umbrel-finion-app-store
+dependencies: []
+repo: https://github.com/aratajew-p/umbrel-finion-app-store
+support: https://github.com/aratajew-p/umbrel-finion-app-store/issues
+
+port: 4201
+gallery: []
+path: ""
+icon: https://raw.githubusercontent.com/aratajew-p/umbrel-finion-app-store/main/finion-stacksats/icon.svg
+
+environment:
+  - name: RESEARCH_BITCOIN_API_KEY
+    services:
+      - web
+    note: API key from researchbitcoin.net, used for the on-chain cost-basis overlays. Leave empty to run without them — the portfolio, tax and real-estate views do not need it.
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: Andrzej Ratajewski
+submission: ""

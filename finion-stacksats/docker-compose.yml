@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: finion-stacksats_web_1
+      APP_PORT: 8000
+
+  web:
+    # Built from the private FinionStudio repo and pushed to the registry
+    # running on this Umbrel box — see umbrel/scripts/deploy-app.sh there.
+    image: localhost:5000/finion-stacksats:0.1.0
+    restart: on-failure
+    init: true
+    user: "1000:1000"
+    environment:
+      TRADES_DB_FILE: /data/trades.db
+      REAL_ESTATE_DB_FILE: /data/real_estate.db
+      BTC_PRICES_DB_FILE: /data/btc_prices.db
+      FX_RATES_DB_FILE: /data/fx_rates.db
+      # Encrypts saved Kraken API keys. Must stay beside the trades.db rows it
+      # protects — restoring one without the other leaves them undecryptable.
+      FERNET_KEY_FILE: /data/fernet.key
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data

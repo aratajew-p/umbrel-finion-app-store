@@ -8,7 +8,7 @@ services:
 
   web:
     # Built from the private FinionStudio repo and pushed to the registry
-    # running on this Umbrel box — see umbrel/scripts/deploy-etrade.sh there.
+    # running on this Umbrel box — see umbrel/scripts/deploy-app.sh there.
     # Not digest-pinned: the tag is rewritten on every deploy in a local
     # registry only this device can reach, so a digest would just be one more
     # thing to keep in sync. Bump the tag to roll the app forward.

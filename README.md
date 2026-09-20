@@ -14,6 +14,7 @@ https://github.com/aratajew-p/umbrel-finion-app-store.git
 | App | Port | What it does |
 | --- | --- | --- |
 | `finion-etrade` | 4200 | Polish capital-gains summaries from an E*TRADE Gains & Losses XLSX export |
+| `finion-stacksats` | 4201 | Bitcoin portfolio, cost basis, and Polish crypto tax from exchange trade history |
 
 ## Note on images
 
